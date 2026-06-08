@@ -1,0 +1,20 @@
+import "dotenv/config";
+
+import { ApolloServer } from "apollo-server";
+
+import { typeDefs } from "./graphql/typeDefs";
+import { resolvers } from "./graphql/resolvers";
+
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
+
+server.listen({
+  port: 4000,
+})
+.then(({ url }) => {
+  console.log(
+    `🚀 Server running at ${url}`
+  );
+});
